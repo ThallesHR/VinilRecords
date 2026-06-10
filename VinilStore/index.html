@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinil Records - Catálogo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="main-screen" class="view-section active">
+    
+    <header class="main-header">
+        <div class="logo">VINIL <span>RECORDS</span></div>
+        <nav class="nav-links">
+            <a href="#hero" class="active">INÍCIO</a>
+            <a href="#catalog-data-container">CATÁLOGO</a>
+            <a href="#featured-release">LANÇAMENTOS</a>
+            <a href="#catalog-data-container">GÊNEROS</a> <a href="#store-features">SOBRE</a>
+        </nav>
+        <div class="header-actions">
+            <button aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button aria-label="Perfil"><i class="fa-solid fa-user"></i></button>
+            <button aria-label="Carrinho" class="cart-btn"><i class="fa-solid fa-basket-shopping"></i><span class="badge">2</span></button>
+        </div>
+    </header>
+
+    <main id="hero" class="hero-container">
+        <div class="hero-text">
+            <h1>DESCUBRA O SOM <br>EM SUA FORMA MAIS PURA</h1>
+            <p>Clássicos eternos e novos lançamentos. <br>Em vinil, como deve ser.</p>
+            <div class="hero-buttons">
+                <a href="#catalog-data-container" class="btn-primary" style="text-decoration: none;">EXPLORAR CATÁLOGO <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#featured-release" class="btn-secondary" style="text-decoration: none;">LANÇAMENTOS DA SEMANA</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="vinyl-disk">
+                <div class="vinyl-label"></div>
+            </div>
+        </div>
+    </main>
+
+        <section class="catalog-sections" id="catalog-data-container">
+            </section>
+
+        <footer class="store-features">
+            <div class="feature-item">
+                <i class="fa-solid fa-record-vinyl"></i>
+                <div>
+                    <h4>LOJA ESPECIALIZADA</h4>
+                    <p>Mais de 2.000 títulos em vinil</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-box-open"></i>
+                <div>
+                    <h4>ENVIO SEGURO</h4>
+                    <p>Embalagem especial para vinis</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <div>
+                    <h4>QUALIDADE GARANTIDA</h4>
+                    <p>Vinil novo e lacrado</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-headset"></i>
+                <div>
+                    <h4>ATENDIMENTO REAL</h4>
+                    <p>Fale com quem entende</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div id="product-screen" class="view-section">
+        <div class="product-page-container">
+            <button id="back-to-catalog" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i> Voltar ao Catálogo</button>
+            <div class="product-detail-wrapper" id="product-detail-content">
+                </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

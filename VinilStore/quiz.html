@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinil Records - Descubra sua Vibe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="quiz-page-bg">
+
+    <section id="quiz-screen">
+        <div class="quiz-container">
+            <div class="logo">VINIL <span>RECORDS</span></div>
+            <h2>Seja bem-vindo. Qual é a sua vibe musical hoje?</h2>
+            <p>Selecione seus gêneros favoritos para personalizarmos seu catálogo.</p>
+            
+            <form id="quiz-form">
+                <div class="quiz-options">
+                    <label class="quiz-card">
+                        <input type="checkbox" name="genre" value="Hip-Hop">
+                        <div class="card-content">
+                            <i class="fa-solid fa-microphone-lines"></i>
+                            <span>Hip-Hop / Rap</span>
+                        </div>
+                    </label>
+                    <label class="quiz-card">
+                        <input type="checkbox" name="genre" value="R&B">
+                        <div class="card-content">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                            <span>R&B / Soul</span>
+                        </div>
+                    </label>
+                    <label class="quiz-card">
+                        <input type="checkbox" name="genre" value="Rock">
+                        <div class="card-content">
+                            <i class="fa-solid fa-guitar"></i>
+                            <span>Rock / Classic</span>
+                        </div>
+                    </label>
+                    <label class="quiz-card">
+                        <input type="checkbox" name="genre" value="Electronic">
+                        <div class="card-content">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>Electronic / Dance</span>
+                        </div>
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary">Entrar na Loja <i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
