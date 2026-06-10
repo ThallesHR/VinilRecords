@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinil Records - Questionário de Afinidade</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="quiz-page-bg">
+
+    <header class="main-header" style="position: absolute; top: 0; left: 0; width: 100%; box-sizing: border-box;">
+        <div class="logo">VINIL <span>RECORDS</span></div>
+        <nav class="nav-links">
+            <a href="index.html">INÍCIO</a>
+            <a href="formulario.html" class="active">FORMULÁRIO</a>
+            <a href="catalogo.html">CATÁLOGO</a>
+            <a href="toca-discos.html">TOCA-DISCOS</a>
+         </nav>
+         
+        <div class="header-actions">
+            <button aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <a href="carrinho.html" aria-label="Carrinho" class="cart-btn" style="text-decoration: none; color: white; position: relative; display: inline-block;">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="badge" id="cart-counter">0</span>
+            </a>
+        </div>
+    </header>
+
+    <section id="quiz-screen" style="margin-top: 100px; padding: 40px 20px;">
+        <div class="quiz-container" style="max-width: 650px; background-color: var(--bg-card); padding: 40px; border-radius: 8px; border: 1px solid var(--border-color); text-align: left; margin: 0 auto;">
+            <h2 style="font-size: 2rem; margin-bottom: 10px; color: var(--accent-red);">Descubra sua Vibe Musical</h2>
+            <p style="color: var(--text-gray); margin-bottom: 30px;">Preencha o formulário de afinidade para personalizarmos sua experiência na loja.</p>
+            
+            <div id="error-message" style="color: var(--accent-red); margin-bottom: 20px; display: none; font-weight: bold;">
+                <i class="fa-solid fa-triangle-exclamation"></i> Por favor, preencha todos os campos do formulário!
+            </div>
+
+            <form id="affinity-form">
+                <div style="margin-bottom: 20px;">
+                    <label for="user-name" style="display: block; margin-bottom: 8px; font-weight: bold;">1. Qual é o seu nome?</label>
+                    <input type="text" id="user-name" placeholder="Digite seu nome completo" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 4px;">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label for="user-email" style="display: block; margin-bottom: 8px; font-weight: bold;">2. Seu melhor E-mail:</label>
+                    <input type="email" id="user-email" placeholder="nome@exemplo.com" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 4px;">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label for="listening-frequency" style="display: block; margin-bottom: 8px; font-weight: bold;">3. Com que frequência você ouve música?</label>
+                    <select id="listening-frequency" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 4px;">
+                        <option value="">Selecione uma opção...</option>
+                        <option value="daily">Todos os dias, o tempo todo</option>
+                        <option value="frequently">Algumas vezes na semana</option>
+                        <option value="rarely">Raramente</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 12px; font-weight: bold;">4. Como você prefere consumir seus álbuns?</label>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <label style="cursor: pointer;">
+                            <input type="radio" name="listening-style" value="sequencial" style="margin-right: 8px; accent-color: var(--accent-red);"> Ouvir na ordem do disco
+                        </label>
+                        <label style="cursor: pointer;">
+                            <input type="radio" name="listening-style" value="aleatorio" style="margin-right: 8px; accent-color: var(--accent-red);"> Modo aleatório (Shuffle)
+                        </label>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; margin-bottom: 12px; font-weight: bold;">5. Quais desses gêneros fazem sua cabeça? (Selecione seus favoritos)</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <label style="cursor: pointer;"><input type="checkbox" name="genre-pref" value="Hip-Hop" style="margin-right: 8px; accent-color: var(--accent-red);"> Hip-Hop / Rap</label>
+                        <label style="cursor: pointer;"><input type="checkbox" name="genre-pref" value="R&B" style="margin-right: 8px; accent-color: var(--accent-red);"> R&B / Soul</label>
+                        <label style="cursor: pointer;"><input type="checkbox" name="genre-pref" value="Rock" style="margin-right: 8px; accent-color: var(--accent-red);"> Rock / Classic</label>
+                        <label style="cursor: pointer;"><input type="checkbox" name="genre-pref" value="Electronic" style="margin-right: 8px; accent-color: var(--accent-red);"> Electronic / Dance</label>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 12px; font-weight: bold;">6. Você já possui um toca-discos (vitrola)?</label>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                        <label style="cursor: pointer;">
+                            <input type="radio" name="has-player" value="sim" style="margin-right: 8px; accent-color: var(--accent-red);"> Sim, uso frequentemente
+                        </label>
+                        <label style="cursor: pointer;">
+                            <input type="radio" name="has-player" value="nao" style="margin-right: 8px; accent-color: var(--accent-red);"> Não, mas pretendo comprar
+                        </label>
+                        <label style="cursor: pointer;">
+                            <input type="radio" name="has-player" value="apenas-coleciono" style="margin-right: 8px; accent-color: var(--accent-red);"> Não, apenas coleciono a arte
+                        </label>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label for="music-decade" style="display: block; margin-bottom: 8px; font-weight: bold;">7. Qual década musical mais te atrai?</label>
+                    <select id="music-decade" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 4px;">
+                        <option value="">Selecione uma época...</option>
+                        <option value="70s">Anos 70 / Clássicos</option>
+                        <option value="80s">Anos 80 / Synth & Pop</option>
+                        <option value="90s">Anos 90 / Grunge & Hip-Hop Gold</option>
+                        <option value="00s">Anos 2000 / Indie & R&B</option>
+                        <option value="modern">Atualidade / Lançamentos</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label for="budget-range" style="display: block; margin-bottom: 8px; font-weight: bold;">8. Quanto planeja investir em média por vinil?</label>
+                    <select id="budget-range" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 4px;">
+                        <option value="">Selecione uma faixa de preço...</option>
+                        <option value="low">Até R$ 150,00</option>
+                        <option value="mid">De R$ 150,00 a R$ 250,00</option>
+                        <option value="high">Acima de R$ 250,00 (Edições Especiais)</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 35px;">
+                    <label for="artist-suggestion" style="display: block; margin-bottom: 8px; font-weight: bold;">9. Indique um artista ou álbum que não pode faltar na sua coleção:</label>
+                    <input type="text" id="artist-suggestion" placeholder="Ex: Daft Punk, Tyler The Creator..." style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 4px;">
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 14px;">Salvar Preferências e Ir para a Loja</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="formulario.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const count = localStorage.getItem('cart_count') || 0;
+            const counterEl = document.getElementById('cart-counter');
+            if (counterEl) counterEl.textContent = count;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinil Records - Seu Carrinho</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">VINIL <span>RECORDS</span></div>
+        <nav class="nav-links">
+            <a href="index.html">INÍCIO</a>
+            <a href="formulario.html">FORMULÁRIO</a>
+            <a href="catalogo.html">CATÁLOGO</a>
+            <a href="toca-discos.html">TOCA-DISCOS</a>
+        </nav>
+        <div class="header-actions">
+            <button aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <a href="carrinho.html" class="cart-btn active" style="color: var(--accent-red);"><i class="fa-solid fa-basket-shopping"></i></a>
+        </div>
+    </header>
+
+    <main style="padding: 40px 5%; min-height: 70vh;">
+        <h1 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 30px; text-transform: uppercase;">SEU CARRINHO</h1>
+
+        <div class="product-detail-wrapper" style="grid-template-columns: 2fr 1fr; gap: 30px; align-items: start;">
+            
+            <div id="cart-items-container" style="display: flex; flex-direction: column; gap: 20px;">
+                </div>
+
+            <div style="background-color: var(--bg-card); padding: 30px; border: 1px solid var(--border-color); border-radius: 4px;">
+                <h3 style="margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; text-transform: uppercase;">RESUMO DO PEDIDO</h3>
+                
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px; color: var(--text-gray);">
+                    <span>Subtotal de itens:</span>
+                    <span id="subtotal-value">R$ 0,00</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 25px; color: var(--text-gray);">
+                    <span>Frete:</span>
+                    <span style="color: #55ff55; font-weight: bold;">GRÁTIS</span>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; margin-bottom: 30px; font-size: 1.3rem; font-weight: bold; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                    <span>TOTAL:</span>
+                    <span id="total-value" style="color: var(--accent-red);">R$ 0,00</span>
+                </div>
+
+                <button class="btn-primary" onclick="checkoutEvent()" style="width: 100%; justify-content: center; padding: 14px;">
+                    FINALIZAR COMPRA
+                </button>
+                <a href="catalogo.html" class="btn-secondary" style="width: 100%; text-align: center; text-decoration: none; display: block; margin-top: 15px; padding: 12px; font-size: 0.9rem;">
+                    CONTINUAR COMPRANDO
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="store-features">
+        <div class="feature-item"><i class="fa-solid fa-shield-halved"></i><div><h4>COMPRA INTEGRAL</h4><p>Dados 100% criptografados</p></div></div>
+        <div class="feature-item"><i class="fa-solid fa-box-open"></i><div><h4>EMBALAGEM DE PAPELÃO</h4><p>Proteção máxima anti-impacto</p></div></div>
+        <div class="feature-item"><i class="fa-solid fa-rotate-left"></i><div><h4>DEVOLUÇÃO GRÁTIS</h4><p>Até 7 dias após o recebimento</p></div></div>
+    </footer>
+
+    <script src="carrinho.js"></script>
+</body>
+</html>

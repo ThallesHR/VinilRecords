@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinil Records - Toca-Discos & Vitrolas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">VINIL <span>RECORDS</span></div>
+        <nav class="nav-links">
+            <a href="index.html">INÍCIO</a>
+            <a href="formulario.html">FORMULÁRIO</a>
+            <a href="catalogo.html">CATÁLOGO</a>
+            <a href="toca-discos.html" class="active">TOCA-DISCOS</a>
+        </nav>
+        <div class="header-actions">
+            <button aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+            
+            <a href="carrinho.html" aria-label="Carrinho" class="cart-btn" style="text-decoration: none; color: white; position: relative; display: inline-block;">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="badge" id="cart-counter">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main style="padding-top: 40px; min-height: 70vh;">
+        
+        <div style="padding: 0 5%; margin-bottom: 30px;">
+            <h1 style="font-size: 2.5rem; font-weight: 900; letter-spacing: -1px; text-transform: uppercase;">TOCA-DISCOS E VITROLAS</h1>
+            <p style="color: var(--text-gray); font-size: 1.1rem; max-width: 600px; margin-top: 5px;">
+                Equipamentos de alta fidelidade sonora e caixas acústicas integradas para extrair o máximo do seu vinil.
+            </p>
+        </div>
+
+        <div class="category-row">
+            <div class="catalog-grid" id="turntables-grid-container">
+                <p style="color: var(--text-gray);"><i class="fa-solid fa-spinner fa-spin"></i> Carregando equipamentos...</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="store-features">
+        <div class="feature-item">
+            <i class="fa-solid fa-truck-fast"></i>
+            <div>
+                <h4>FRETE SEGURO</h4>
+                <p>Envio com seguro total contra danos</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <div>
+                <h4>SUPORTE TÉCNICO</h4>
+                <p>Auxílio na calibração da agulha</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <i class="fa-solid fa-award"></i>
+            <div>
+                <h4>GARANTIA DE 1 ANO</h4>
+                <p>Produto original com nota fiscal</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="toca-discos.js"></script>
+    <script>
+        // Sincroniza o número do carrinho do cabeçalho
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('cart-counter').textContent = localStorage.getItem('cart_count') || 0;
+        });
+    </script>
+</body>
+</html>

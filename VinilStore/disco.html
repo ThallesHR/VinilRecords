@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinil Records - Detalhes do Disco</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">VINIL <span>RECORDS</span></div>
+        <nav class="nav-links">
+            <a href="index.html">INÍCIO</a>
+            <a href="formulario.html">FORMULÁRIO</a>
+            <a href="catalogo.html">CATÁLOGO</a>
+            <a href="toca-discos.html">TOCA-DISCOS</a>
+         </nav>
+        <div class="header-actions">
+            <button aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+            
+            <a href="carrinho.html" aria-label="Carrinho" class="cart-btn" style="text-decoration: none; color: white; position: relative; display: inline-block;">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="badge" id="cart-counter">0</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="product-page-container">
+        <a href="catalogo.html" class="btn-secondary" style="text-decoration: none; display: inline-block; margin-bottom: 30px;">
+            <i class="fa-solid fa-arrow-left"></i> Voltar ao Catálogo
+        </a>
+        
+        <div class="product-detail-wrapper" id="product-detail-content">
+            <p style="color: var(--text-gray);"><i class="fa-solid fa-spinner fa-spin"></i> Carregando detalhes do vinil...</p>
+        </div>
+    </div>
+
+    <script src="product.js"></script>
+</body>
+</html>

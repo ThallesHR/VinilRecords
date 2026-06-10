@@ -1,3 +1,4 @@
+// ================= BANCO DE DADOS ATUALIZADO =================
 const ALBUMS_DATABASE = [
     {
         id: "wlr",
@@ -57,54 +58,49 @@ const ALBUMS_DATABASE = [
 
 let userPreferences = [];
 
-// Alternar visualização interna entre Catálogo e Página do Disco
-function switchInternalView(showId, hideId) {
-    document.getElementById(hideId).classList.remove('active');
-    document.getElementById(showId).classList.add('active');
-    window.scrollTo(0, 0);
+// Redireciona o usuário para a página física do produto com parâmetros na URL
+function navigateToProductPage(albumId) {
+    window.location.href = `disco.html?id=${albumId}`;
 }
 
 function renderCatalog() {
     const catalogContainer = document.getElementById('catalog-data-container');
-    catalogContainer.innerHTML = ''; // Limpa o contêiner para evitar duplicidade
+    catalogContainer.innerHTML = ''; 
 
     const allGenres = [...new Set(ALBUMS_DATABASE.map(album => album.genre))];
 
-    // Ordena colocando as preferências do usuário no topo da lista
+    // Ordenação inteligente baseada no questionário do usuário
     const sortedGenres = [
         ...userPreferences, 
         ...allGenres.filter(g => !userPreferences.includes(g))
     ];
 
-    // Percorre os gêneros ordenados para criar as fileiras (estilo Netflix)
     sortedGenres.forEach((genre, index) => {
         const filteredAlbums = ALBUMS_DATABASE.filter(album => album.genre === genre);
-        if (filteredAlbums.length === 0) return; // Pula o gênero se não houver discos correspondentes
+        if (filteredAlbums.length === 0) return; 
 
         const isPreferred = userPreferences.includes(genre);
         const rowSection = document.createElement('div');
         rowSection.className = 'category-row';
         
+        // Substituído a classe "carousel" por "catalog-grid" para cumprir a obrigatoriedade de CSS Grid do PDF
         rowSection.innerHTML = `
             <h3>${genre} ${isPreferred ? '<span>RECOMENDADO PARA VOCÊ</span>' : ''}</h3>
-            <div class="carousel-container">
-                <div class="carousel" id="carousel-${genre}">
-                    </div>
-            </div>
+            <div class="catalog-grid" id="grid-${genre}">
+                </div>
         `;
         
         catalogContainer.appendChild(rowSection);
-        const carousel = document.getElementById(`carousel-${genre}`);
+        const gridContainer = document.getElementById(`grid-${genre}`);
         
-        // Injeta os álbuns daquela categoria
         filteredAlbums.forEach(album => {
             const card = document.createElement('div');
             card.className = 'album-card';
-            card.onclick = () => openProductPage(album.id);
+            card.onclick = () => navigateToProductPage(album.id);
             
             card.innerHTML = `
                 <div class="album-cover-wrapper">
-                    <img src="${album.cover}" alt="${album.title}">
+                    <img src="${album.cover}" alt="Capa do álbum ${album.title}">
                 </div>
                 <div class="album-info">
                     <span class="artist-name">${album.artist}</span>
@@ -112,19 +108,19 @@ function renderCatalog() {
                 </div>
                 <div class="album-footer">
                     <span class="price">${album.price}</span>
-                    <button class="wishlist-btn" onclick="event.stopPropagation(); alert('Favoritado!')">
+                    <button class="wishlist-btn" onclick="event.stopPropagation(); alert('Adicionado aos favoritos!')">
                         <i class="fa-regular fa-bookmark"></i>
                     </button>
                 </div>
             `;
-            carousel.appendChild(card);
+            gridContainer.appendChild(card);
         });
 
-        // INTERCEPTAÇÃO: Injeta o banner de destaque logo após a primeira fileira
+        // Injeção do Banner de Destaque da Semana (Whole Lotta Red) logo após a primeira seção
         if (index === 0) {
             const featuredBanner = document.createElement('div');
             featuredBanner.className = 'featured-row-split';
-            featuredBanner.id = 'featured-release'; // <-- ID adicionada aqui para a âncora funcionar!
+            featuredBanner.id = 'featured-release'; 
             
             featuredBanner.innerHTML = `
                 <div class="featured-info-box">
@@ -132,10 +128,10 @@ function renderCatalog() {
                     <h2>WHOLE LOTTA RED</h2>
                     <h3>PLAYBOI CARTI</h3>
                     <p class="price" style="font-size: 1.2rem; margin-bottom: 20px;">R$ 249,90</p>
-                    <button class="btn-primary" onclick="openProductPage('wlr')">VER DETALHES <i class="fa-solid fa-arrow-right"></i></button>
+                    <button class="btn-primary" onclick="navigateToProductPage('wlr')">VER DETALHES <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
                 <div class="featured-img-box">
-                    <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=400&auto=format&fit=crop" alt="Whole Lotta Red">
+                    <img src="https://imgs.search.brave.com/SEVt8MkQ58ecG-Wxsk07N5H0mxoZjzwqdgKBvWgih08/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/MzFMMkp2amlid0wu/anBn" alt="Whole Lotta Red">
                 </div>
             `;
             catalogContainer.appendChild(featuredBanner);
@@ -143,43 +139,13 @@ function renderCatalog() {
     });
 }
 
-// Abrir página dinâmica do disco
-function openProductPage(albumId) {
-    const album = ALBUMS_DATABASE.find(a => a.id === albumId);
-    if(!album) return;
-
-    const detailContent = document.getElementById('product-detail-content');
-    detailContent.innerHTML = `
-        <div class="product-image-side">
-            <img src="${album.cover}" alt="${album.title}">
-        </div>
-        <div class="product-info-side">
-            <h2>${album.title}</h2>
-            <div class="artist">por ${album.artist}</div>
-            <div class="product-price">${album.price}</div>
-            <button class="btn-primary" style="padding: 16px 40px; font-size: 1.1rem;">
-                <i class="fa-solid fa-cart-shopping"></i> ADICIONAR AO CARRINHO
-            </button>
-            <div class="tracklist">
-                <h3>Faixas do Álbum</h3>
-                <ol>${album.tracks.map(track => `<li>${track}</li>`).join('')}</ol>
-            </div>
-        </div>
-    `;
-    switchInternalView('product-screen', 'main-screen');
-}
-
-document.getElementById('back-to-catalog').addEventListener('click', () => {
-    switchInternalView('main-screen', 'product-screen');
-});
-
-// Verificação de Segurança ao carregar a página
+// Verificação de Segurança ao carregar a página catalogo.html
 window.addEventListener('DOMContentLoaded', () => {
     const savedPrefs = localStorage.getItem('vinil_store_pref');
     
     if (!savedPrefs) {
-        // Se tentar acessar o catálogo sem responder o quiz, manda de volta para o formulário
-        window.location.href = 'quiz.html';
+        // Se tentar burlar e acessar o catálogo direto sem o quiz, manda para o formulário
+        window.location.href = 'formulario.html';
     } else {
         userPreferences = JSON.parse(savedPrefs);
         renderCatalog();
