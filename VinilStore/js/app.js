@@ -125,15 +125,6 @@ const ALBUMS_DATABASE = [
         genre: "Hip-Hop",
         cover: "img/iet2.jpeg",
         tracks: ["BENÇA", "OK", "PARIS", "WARZONE", "BLUNT DE GOIABA", "JAQUETA BAPE", "MOOD", "MILAGRE", "FÓRMULAS & MIRAGENS", "BUG NA MATRIX", "JAPONÊS (feat. Matuê)", "ROCKSTAR (feat. Desiree)", "DEPOIS DO SHOW", "COMIGO MESMO"]
-    },
-    {
-        id: "qpevc",
-        title: "Qual Piranha Eu Vou Comer",
-        artist: "Dj Tagarazz",
-        price: "R$ 67,00",
-        genre: "Electronic",
-        cover: "img/qpevc.jpeg",
-        tracks: ["Qual Piranha Eu Vou Comer"]
     }
 ];
 
@@ -224,10 +215,11 @@ function renderCatalog() {
 // Verificação de Segurança ao carregar a página catalogo.html
 window.addEventListener('DOMContentLoaded', () => {
     const savedPrefs = localStorage.getItem('vinil_store_pref');
-
-    if (savedPrefs) {
+    
+    if (!savedPrefs) {
+        window.location.href = 'formulario.html';
+    } else {
         userPreferences = JSON.parse(savedPrefs);
+        renderCatalog();
     }
-
-    renderCatalog();
 });
